@@ -1,0 +1,87 @@
+/* vieja escuela => dentro de cada @media, es una nueva hoja de estilo 
+
+        @media (max-width: 768px) /*elminar media para cel*/{
+
+            body{
+                background-color: red;
+            }
+
+            .columna25{
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 768px) and (min-width: 1000px){
+
+            body{
+                background-color: green;
+            }
+        }
+
+        @media (max-width: 1001px){
+
+            body{
+                background-color: blue;
+            }
+
+            .columna25{
+                width: 100%;
+            }
+        }*/
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+
+
+body{
+                background-color: red;
+            }
+
+            .columna25{
+                width: 100%;
+            }
+
+
+
+
+
+/* Tablet & Desktop */
+        @media (min-width: 768px) and (min-width: 1000px){
+            .background{
+                background-image: url("fondo");
+                position: fixed;
+                z-index: 0;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                left: 0;
+            }
+
+        }
+
+        /* Tablet */
+        @media (min-width: 768px){
+
+        }
+
+        /* Desktop */
+        @media (max-width: 1001px){
+
+            body{
+                background-color: blue;
+            }
+
+            .columna25{
+                width: 100%;
+            }
+        }
+
+
+ejercicios de infobae-responsive:
+
+- cambiar imagen segun el dispositivo
+
+- cambiar texto entre cel y desktop

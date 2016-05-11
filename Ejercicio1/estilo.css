@@ -1,0 +1,59 @@
+.container {
+  width: 60%;
+  margin: 0 auto;
+  font-family: cursive;
+}
+
+h1 {
+  margin: 10px;
+  padding: 10px;
+  color: orange;
+  background-color: black;
+  border: 1px solid orange;
+  text-decoration: underline;
+}
+
+h3 {
+  margin: 10px;
+  padding: 10px;
+  color: red;
+  background-color: white;
+  border: 1px solid black;
+  text-decoration: underline;
+}
+
+.photo {
+  display: inline-block;
+  width: 30%;
+  text-align: center;
+}
+
+.row {
+  width: 100%;
+  text-align: center;
+}
+
+.photo_row_4 {
+  display: inline-block;
+  /*width: 30%;*/
+  text-align: left;
+}
+
+.text {
+  display: inline-block;
+  margin-right: 10%;
+  padding: 3px;
+}
+
+.info {
+  font-style: italic;
+}
+
+.parafverde {
+  color: green;
+}
+
+.parafrojo {
+  color: red;
+}
+

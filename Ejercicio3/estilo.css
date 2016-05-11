@@ -1,0 +1,34 @@
+.contenedor{
+	width: 70%;
+	height: 70%;
+	margin: 0 auto;
+	background-color: gray;
+}
+
+.fila{
+	width: 95%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#fondo-imagen{ 
+	background-position: 0px -400px;
+	width: 90%; 
+	height: 25%;
+}
+
+h2 { text-align: center;}
+
+h3 { display: inline-block;}
+
+#perfil{ width: 128px;}
+
+/*.borde {
+      width: 400px;
+      height: 200px;
+      border-radius: 20%;
+      border-color: yellow;
+ }*/
+
+
+

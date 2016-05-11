@@ -1,0 +1,157 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="bootstrap.css">
+</head>
+
+<style>
+
+	.fila-header{
+		width: 100%;
+		margin-bottom: 20px;
+	}
+
+	.content{
+		width: 70%;
+		margin: 0 auto;
+	}
+
+	.fila-header::after{
+		clear: both;
+	}
+
+	.imagen-header{
+		width: 80px;
+		height: 80px;
+		background-image: url("imagenes/0014555427.jpg");
+	}
+
+	.comentarios{
+		width: 80%;
+		margin-left: 25px;
+		margin-top: 10px;
+	}
+
+	.imagen-header::after{
+		clear: both;
+	}
+
+	.columna-izq{
+		width: 65%;
+	}
+
+	.columna-der{
+		width: 30%;
+	}
+
+	*[class*="columna"], .imagen-header, .comentarios, .fila-header{
+		float: left;
+	}
+
+	*[class*="fila"] > img{
+		max-width: 100%;
+	}
+
+	.fila-izq{
+		margin-right: 10px;
+		margin-bottom: 20px;
+	}
+
+	.fila-der{
+		margin-left: 10px;
+		margin-bottom: 10px;
+	}
+
+	.parrafo{
+		margin-bottom: 10px;
+	}
+
+	.mapa{
+		background-image: url("imagenes/mapa.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		width: 100%;
+		height: 390px;
+	}
+
+	.avion{
+		background-image: url("imagenes/cel.jpg");
+		background-size: cover;
+		background-repeat: no-repeat;
+		max-width: 100%;
+		height: 390px;
+	}
+
+
+	/* Tablet */
+        @media (min-width: 768px) and (max-width: 1000px){
+
+        	.avion{
+        		background-image: url("imagenes/tablet1.png");
+				background-size: cover;
+				background-repeat: no-repeat;
+				max-width: 100%;
+				height: 390px;
+        	}
+        }
+
+     /* Desktop */
+        @media (min-width: 1001px){
+
+        	.avion{
+        		background-image: url("imagenes/desktop.png");
+				background-size: cover;
+				background-repeat: no-repeat;
+				max-width: 100%;
+				height: 390px;
+        	}
+        }
+</style>
+
+<body>
+
+	<div class="content">
+
+		<h1>Aerolineas Argentinas dejara de volar a Cuba</h1>
+
+	<div class="fila-header">
+			<div class="imagen-header"></div>
+
+			<div class="comentarios">Por: Gerardo González ggonzalez@infobae.com
+			Varios motivos influyeron en la decisión, entre ellos, no tener aviones adecuados para esa ruta. El último vuelo será el 31 de julio. ¿Qué pasará con los turistas que tenían tickets posteriores a esa fecha?</div>
+	</div>
+
+	<div class="columna-izq">
+			<div class="fila-izq">
+
+				<div class="avion"></div>
+
+			</div>
+			<div class="parrafo">
+			Sorpresa. Esa fue la reacción que tuvo Claudio cuando le avisaron por teléfono –desde la agencia de turismo– que le iban a devolver la plata que había pagado por el pasaje a Cuba, debido a que la empresa Aerolíneas Argentinas ya no cubría esa ruta en la fecha que tenía previsto realizar su viaje.
+			</div>
+			<div class="fila-izq">
+
+				<div class="mapa"></div>
+
+			</div>
+			<div class="parrafo">
+			Argentina supo ser el principal mercado emisor de turistas desde el Cono Sur. Por tal razón, en enero de 2015, cuando la compañía estaba comandada por el camporista Mariano Recalde, se decidió incluir a La Habana entre los destinos internacionales que cubría Aerolíneas Argentinas.</div>
+	</div>
+
+	<div class="columna-der">
+			<div class="fila-der">
+				<img src="imagenes/imagen3.jpg">
+			</div>
+			<div class="fila-der">
+				<img src="imagenes/imagen4.jpg">
+			</div>
+			<div class="fila-der">
+				<img src="imagenes/imagen5.jpg">
+			</div>
+	</div>
+
+	</div>
+
+</body>
+</html>

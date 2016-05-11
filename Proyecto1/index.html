@@ -1,0 +1,306 @@
+<html>
+
+<head>
+  <title>proy</title>
+    <!-- <link rel="stylesheet" href="estilo-menu.css" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+
+    body{ 
+        max-width: 970px; 
+    }
+
+    /*.contenedor{
+        width: 90%;
+        margin: 0 auto;
+    }*/
+    *{
+        box-sizing: border-box;
+    }
+
+    .fila{
+        width: 100%;
+        display: block;
+    }
+
+    /*  ^= comienzan con  */
+    /*  *= terminan con  */
+
+    *[class^="columna"]{
+        
+        float: left;
+        display: block;
+        height: 100px;
+        overflow: hidden; /* oculta todo lo que esta por fuera */
+    }
+
+    .fila::after/* despues de cada fila*/{
+        clear:both;
+    }
+
+    .columna50{
+        width: 50%;
+    }
+
+    .columna25{
+        width: 25%;
+        height: 300px;
+    }
+
+    *[class^="columna"] > img{
+        max-width: 100%;
+    }
+
+    *[class="columna50"] > img { height: 300px; }
+
+    .hero .columna50{
+        height: 300px;
+    }
+
+    .hero > *[class^="columna"]{
+        height: 300px;
+    }
+
+    .columna100{ 
+        width: 100%;
+        height: 150px;
+        padding: 3px;
+    }
+
+    /* MENU */
+
+    body{ 
+            max-width: 970px;
+        }
+
+        .contenedor{
+            max-width: 970px;
+            margin: 0 auto;
+            position: relative; /**/
+        }
+
+        .fila-header{
+            width: 100%;
+            height: 90px;
+            background-color: gray;
+            opacity: 0.4;
+            clear: both;
+            float: left;
+            top: 0; /**/
+            position: absolute; /**/
+        }
+
+        .imagen-fondo{ 
+            background-image: url("imagenes/hero-ourwork-1.jpg");
+            width: 100%;
+            height: 300px;
+            float: left;
+            position: relative; /**/
+        }
+
+        .fila-header::after{
+            clear: both;
+        }
+
+        .imagen-fondo::after{
+            clear: both;
+        }
+
+        *[class^="columna"]{
+            float: left;
+        }
+
+        .columna-logo{
+            height: 90px;
+            position: absolute;
+        }
+
+        .menu{
+            margin-left: 172px;
+            margin-top: 34px;
+        }
+
+        .columna-menu{
+            width: 100%;
+            height: 90px;
+            position: absolute;
+        }
+
+        .menu > li {
+            display: inline;
+            margin-left: 10px;
+        }
+
+        .menu li a {
+            color: white;
+        }
+
+        .imagen-logo{ 
+            width: 170px;
+            height: 70px;
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+
+       @media(max-width: 568px){
+            
+            .fila-header{
+                background-color: yellow;
+                opacity: 0.5;
+            }
+        }
+
+  </style>
+</head>
+
+<body>
+
+        <div class="contenedor">
+
+            <div class="imagen-fondo"></div>
+
+            <div class="fila-header"></div>
+
+            <div class="columna-logo">
+                    <img class="imagen-logo" src="imagenes/GlobalLogic.png">
+            </div>
+
+            <div class="columna-menu">
+                    <ul class="menu">
+                        <li><a href="http://www.globallogic.com/what-we-do-services/">WHAT WE DO</a></li>
+                        <li><a href="http://www.globallogic.com/our-work-case-studies/">OUR WORK</a></li>
+                        <li><a href="http://www.globallogic.com/who-we-are/">WHO WE ARE</a></li>
+                        <li><a href="http://www.globallogic.com/news-and-insights/">NEWS & INSIGHTS</a></li>
+                        <li><a href="http://www.globallogic.com/work-with-us/">WORK WITH US</a></li>
+                        <li><a href="http://www.globallogic.com/contact-us/">CONTACT US</a></li>
+                    </ul>
+            </div>
+
+        </div>
+
+        <div class="fila hero">
+            <div class="columna50">
+                <img src="imagenes/instabeat-feature.jpg">
+            </div>
+            <div class="columna25">
+                <div class="fila">
+                    <div class="columna100">
+                        <img src="imagenes/stellar_portada.jpg">
+                    </div>
+                </div>
+                <div class="fila">
+                    <div class="columna100">
+                        <img src="imagenes/Cochlear_featured.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="columna25">
+                <div class="fila">
+                    <div class="columna100">
+                        <img src="imagenes/bay-innovation_portada.jpg">
+                    </div>
+                </div>
+                <div class="fila">
+                    <div class="columna100">
+                        <img src="imagenes/BMC_featured.jpg">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="fila">
+            <div class="columna25">
+                <div class="fila">
+                    <div class="columna100">
+                        <img src="imagenes/customcd_feature.jpg">
+                    </div>
+                </div>
+                <div class="fila">
+                    <div class="columna100">
+                        <img src="imagenes/reuters_feature.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="columna25">
+                <div class="fila">
+                    <div class="columna100">
+                        <img src="imagenes/Qualcomm_pen_feature.jpg">
+                    </div>
+                </div>
+                <div class="fila">
+                    <div class="columna100">
+                        <img src="imagenes/Pollogen_feature.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="columna25">
+                <div class="fila">
+                    <div class="columna100">
+                        <img src="imagenes/III_featured.jpg">
+                    </div>
+                </div>
+                <div class="fila">
+                    <div class="columna100">
+                        <img src="imagenes/snapdragon_senseid_feature.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="columna25">
+                <div class="fila">
+                    <div class="columna100">
+                        <img src="imagenes/avid03.jpg">
+                    </div>
+                </div>
+                <div class="fila">
+                    <div class="columna100">
+                        <img src="imagenes/nokia_portada.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="fila">
+            <div class="columna25">
+                <div class="fila">
+                    <div class="columna100">
+                        <img src="imagenes/fluid_feature1.jpg">
+                    </div>
+                </div>
+                <div class="fila">
+                    <div class="columna100">
+                        <img src="imagenes/Snapdeal_feature1.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="columna25">
+                <div class="fila">
+                    <div class="columna100">
+                        <img src="imagenes/dax_featured.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="columna25">
+                <div class="fila">
+                    <div class="columna100">
+                        <img src="imagenes/dax_featured1.jpg">
+                    </div>
+                </div>
+            </div>
+            <div class="columna25">
+                <div class="fila">
+                    <div class="columna100">
+                        <img src="imagenes/Basis_featured.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div/>
+
+</body>
+
+</html>
