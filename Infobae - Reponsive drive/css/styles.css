@@ -1,0 +1,22 @@
+body{
+	font-size: 32px;
+}
+
+.titulo{
+	margin-bottom:20px;
+	font-size: 0.5em;
+}
+
+.ads img{
+	margin-bottom: 20px;
+}
+
+.titulo .texto{
+	padding-left: 0;
+}
+
+@media (min-width: 768px){
+	.titulo .texto{
+		padding-left: 15px;
+	}	
+}

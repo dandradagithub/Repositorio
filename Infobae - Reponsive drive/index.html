@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Blog entry</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<main class="container">
+		<article>
+			<h1>Titulo</h1>
+			<div class="row titulo">
+				<div class="col-md-2 col-xs-4">
+					<img class="img-responsive" src="http://cdn01.ib.infobae.com/adjuntos/162/imagenes/014/707/0014707198.jpg" alt="">
+				</div>
+				<div class="col-md-10 col-xs-8 texto"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae reiciendis nisi ad expedita unde est sint enim beatae consectetur aspernatur, deleniti labore maiores ea quas modi. Excepturi voluptatibus quo, non!</p></div>
+			</div>
+			<div class="row">
+				<div class="col-md-8 col-xs-12">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores itaque error, tempora delectus consequuntur asperiores maxime ipsa voluptas veritatis animi, impedit numquam deleniti, libero vitae vero sunt culpa consectetur recusandae.</p>
+					<p id="parrafo2">Enim vel ad in commodi amet ducimus, voluptates sint ipsam sunt, temporibus officiis iusto dolorem ratione tempore nemo doloremque. Corrupti, eum. Similique autem cum deleniti incidunt minus assumenda, nostrum quam!</p>
+					<p>Nisi iusto, repudiandae dolore earum enim amet suscipit mollitia eum numquam, veritatis explicabo. Officia quae architecto, consectetur voluptatem veniam vero eum blanditiis esse error facilis ipsam doloribus, placeat, in assumenda?</p>
+				</div>
+				<div class="col-md-4 col-xs-12 ads">
+					<div class="row">
+						<div class="col-md-12 col-sm-6">
+							<img class="img-responsive" src="http://cdn01.ib.infobae.com/adjuntos/162/imagenes/014/635/0014635731.jpg" alt="">
+						</div>
+						<div class="col-md-12 col-sm-6">
+							<img class="img-responsive" src="http://cdn01.ib.infobae.com/adjuntos/162/imagenes/014/635/0014635731.jpg" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+	</main>
+
+	<script type="text/javascript" src="JS/jquery-2.2.3.js"></script>
+
+	<script>
+		//DOMContentLoad
+
+		$(function(){
+			console.log('ready');
+			$(".col-md-10.col-xs-8.texto").css("background-color","#27C4D5");
+			$(".col-md-8.col-xs-12").css("background-color","#01D1FF");
+		});
+	</script>
+
+	<script>
+
+			console.log('ready123');
+			var titulo = document.getElementsByTagName("h1");
+			titulo[0].style = "font-size: 100px; color: red";
+
+			var p2 = document.getElementById("parrafo2");
+			p2.style = "font-size: 20px; color: yellow";
+	</script>
+</body>
+</html>
