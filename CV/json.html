@@ -1,0 +1,61 @@
+<html>
+<head>
+	<title></title>
+
+</head>
+<body>
+
+	<h1 id="Nombre"></h1>
+	<h3 id="Ocupacion"></h3>
+
+	<p id="Perfil"></p>
+
+	<div id="Experiencia"></div>
+
+	<div id="Conocimiento"></div>
+
+<script type="text/javascript" src="JS/jquery-2.2.3.js"></script>
+<script>
+
+	$.getJSON('cv.json', funcion(cv){
+		console.log("hola");
+	});
+
+			/*var li = $('<li></li>');
+			li.html(jsonCV.Nombre);
+			var jqDiv = $('<div></div>');
+			jqDiv.append(li);*/
+
+			$.each(jsonCV, function(key, value)
+			{
+				if( typeof value == 'string')
+				{
+					$('#' + key).html(value);
+				}
+				else{
+					var ul = $('<ul></ul>');
+
+					$.each(value, function(k, v)
+					{
+						var li = $('<li></li>')
+						li.html(v);
+						ul.append(li);
+					});
+					$('#'+key).append(ul);
+				}
+			});
+
+			/*var li = $('<li></li>');
+			li.html('lala');
+			var div = $('<div></div>');
+			div.append(li);
+
+			$('#ej').append(div); // 'ej' es ID de un DIV
+
+			buscar por ID -> '#' en html
+			$('#'+key).html(value)*/
+			
+
+</script> 
+</body>
+</html>

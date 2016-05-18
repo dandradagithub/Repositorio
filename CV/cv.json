@@ -1,0 +1,10 @@
+{
+
+				 "Nombre": "Jake Rocheleau", 
+				 "Ocupacion": "Freelance Writer y Web Developer", 
+				 "Perfil": "Im a 21 year old web designer and developer working out of eastern Massachusetts.", 
+
+				 "Conocimiento": [ "Devolopment", "HTML5/CSS3", "JavaScript y jQuery", "PHP Backend" ],
+
+				 "Experiencia": [ {"Puesto": "Freelance Web Designer Developer", "Periodo": "2007 2009"} ]
+			}

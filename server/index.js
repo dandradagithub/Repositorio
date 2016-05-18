@@ -3,5 +3,5 @@ var connect = require('connect'),
 
 	connect().use(serveStatic(__dirname)).listen(8080, 
 		function(){
-		console.log("aaaaaaaaasssssssssssss");
+		console.log("Corriendo...");
 	});
