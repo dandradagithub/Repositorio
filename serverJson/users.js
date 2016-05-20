@@ -68,7 +68,7 @@ module.exports = function(server){
 			res.send(200, "Se elimino el ultimo usuario");
 			console.log('\nUsuario eliminado: -%s-  -%s-', eliminado.name, eliminado.email);
 			return next();
-		}
+ 		}
 
 		this.filtrarPorParametro = function(req, res, next){
 			var userId = req.params.id;
