@@ -1,30 +1,31 @@
 // cuando la pag este cargado y se haga clic, se envian los datos
 $(function(){
 
-	// seleccionamos un elemento como en css -> $("form input[type=text]")
-	/*$("form input[type=text]").on("click", onClick)
+	// seleccionamos un elemento como en css -> $('form input[type=text]')
 
-	function onClick(){}*/
 
-	$(function(){ /* $(function(){ usar uno por pagina */
+	$('form input[type=submit]').on('click', onClick)
 
-			$("#primero").css({"background-color":"blue", "color":"yellow"});
-			$(".segundo").css({"background-color":"white", "color":"red"});
-			$(".menu li:eq(2)").remove(); // tercer elemento li
+	
 
-			/* .on('evento', callback) setear evento
-				
-				obtener valor del atributo
-				.attr('nombre del atributo')
+		function onClick(){
+			
+		$.post({
 
-				obtener el html del tag
-				.html()
+			url:'/persona',
 
-				setear html
-				.html(valor)
+			data:{
+				usuario:$('#usuario').val(),
+				contraseña:$('#contraseña').val()
+			},
 
-				.empty() borra lo que hay dentro
-			*/
-
+			success: function(data){ // cuando el servidor esta listo, envia data
+				console.log('respuesta del server', data); // muestra en la consola de front
+			}
 		});
+
+		return false; // evitar todo lo que sigue despues del click
+		}
 });
+
+		

@@ -1,0 +1,68 @@
+
+//todos los archivos static los saca de la carpeta public
+server.use(express.static('public'));
+// convierte bodyPaerser en objeto json
+server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: true });
+
+
+
+server.post('/persona', function(req, res, next){
+
+	console.log('body', req.body);
+	console.log('query string', req.query);
+	console.log(req.query);
+	
+	var persona = {
+		'name': req.body.nombre + 'b'
+	};
+
+	res.send(persona); // quiero que termine esta llamada y envie a persona
+});
+
+
+server.listen(3000, function(){
+	console.log('escuchando en 3000...')
+});
+
+/*server.get('/', function(req, res, next){
+	res.send('hello word');
+});*/
+
+
+
+$.ajax({
+			url:'/pepe',
+			method:'GET'
+			data:{},
+			success: function(data){
+				console.log(data);
+			}
+		});
+
+
+
+	/* .on('evento', callback) setear evento
+				
+				obtener valor del atributo
+				.attr('nombre del atributo')
+
+				obtener el html del tag
+				.html()
+
+				setear html
+				.html(valor)
+
+				.empty() borra lo que hay dentro
+			*/
+
+
+			/*$(function(){ $(function(){ usar uno por pagina
+
+			$('#primero').css({'background-color':'blue', 'color':'yellow'});
+			$('.segundo').css({'background-color':'white', 'color':'red'});
+			$('.menu li:eq(2)').remove(); // tercer elemento li
+
+			
+
+		});*/
