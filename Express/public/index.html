@@ -1,18 +1,53 @@
 <html>
 <head>
 	<title></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bootstrap.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
+<style>
+	.container{
+		width: 70%;
+		margin: 0 auto;
+	}
+	.form-group .help-block{
+		display: none;
+	}
+
+	.form-group.has-error.required .help-block.required{
+		display: block;
+	}
+	.form-group.has-error.invalid .help-block.invalid{
+		display: block;
+	}
+</style>
 <body>
 
-	<div class="container">
-		<form>
-			<input id="usuario" type="text"></input>
-			<input id="contraseña" type="text"></input>
-			<input type="submit" value="enviar"></input>
-		</form>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<form>
+					<div class="form-horizontal">
 
-	</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Email address</label>
+							<input type="text" class="username form-control" id="exampleInputEmail1" placeholder="Email">
+							<span class="help-block required">Email Required</span>
+							<span class="help-block invalid">Email invalid</span>
+						</div>
+
+						<div class="form-group">
+							<label for="exampleInputPassword1">Password</label>
+							<input type="password" class="password form-control" id="exampleInputPassword1" placeholder="Password">
+							<span class="help-block">Password Required</span>
+						</div>
+
+						<input type="submit" class="btn btn-default" value="Enviar" >
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
 
 	<script type="text/javascript" src="js/jquery-2.2.3.js"></script>
 	<script type="text/javascript" src="js/forms.js"></script>

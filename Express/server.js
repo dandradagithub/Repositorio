@@ -28,8 +28,8 @@ server.post('/persona', function(req, res, next){
 		passuser = req.body.contraseña,
 		vacio = "";
 
-		if(nomuser === vacio || passuser === vacio)
-			res.send("Campo vacio");
+		/*if(nomuser === vacio || passuser === vacio)
+			res.send("Campo vacio");*/
 
 		if( nomuser === users[0].u && passuser === users[0].pass )
 		{
