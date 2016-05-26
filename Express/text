@@ -61,6 +61,7 @@ $.ajax({
 
 			$('#primero').css({'background-color':'blue', 'color':'yellow'});
 			$('.segundo').css({'background-color':'white', 'color':'red'});
+			
 			$('.menu li:eq(2)').remove(); // tercer elemento li
 
 			

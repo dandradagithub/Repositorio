@@ -1,11 +1,14 @@
 // cuando la pag este cargado y se haga clic, se envian los datos
 $(function(){
 
-    $('input[type=submit]').on('click', cargarTodo);
+    $('#actualizar').on('click', actualizar);
+    $('#agregar').on('click', agregar);
+    $('#eliminar').on('click', eliminar);
+    $('#modificar').on('click', modificar);
 
-    cargarTodo();
+    actualizar();
 
-    function cargarTodo(){
+    function actualizar(){
         $.get({
 
         url:'/persona',
@@ -28,4 +31,66 @@ $(function(){
         });
     }
 
-});	
+    function agregar(){
+        $.ajax({
+
+        url:'/persona',
+        method:'put',
+        data:{
+            name:$('#nombre').val(),
+            age:$('#edad').val(),
+            email:$('#email').val()
+        },
+
+            success: function(data){ // cuando el servidor esta listo, envia data
+                
+                console.log('respuesta del server', data); // muestra en la consola de front
+
+                //$('#personas').html("Personas")
+                /*for(var i = 0 ; i < tam ; i++){*/
+                $('#personas').append('<li>' +  "ID: " + data.id + 
+                                                "   Nombre: " + data.nombre + 
+                                                "   Edad: " + data.edad + 
+                                                "   Email: " + data.email + 
+                                     '</li>');
+                //}
+            }
+        });
+    }
+
+    function eliminar(){
+        $.ajax({
+
+        url:'/persona',
+        method:'delete',
+        data:{
+            id:$('#ide').val()
+        },
+
+            success: function(data){ // cuando el servidor esta listo, envia data
+                
+                console.log('respuesta del server', data); // muestra en la consola de front
+            }
+        });
+    }
+
+    /*function modificar(){
+        $.ajax({
+
+        url:'/persona',
+        method:'post',
+        data:{
+            id:$('#ide').val(),
+            name:$('#nombre').val(),
+            age:$('#edad').val(),
+            email:$('#email').val()
+        },
+
+            success: function(data){ // cuando el servidor esta listo, envia data
+                
+                console.log('respuesta del server', data); // muestra en la consola de front
+            }
+        });
+    }*/
+
+});

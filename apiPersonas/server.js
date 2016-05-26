@@ -26,35 +26,89 @@ server.use(express.static('public')); //todos los archivos static los saca de la
 server.use(bodyParser.json()); // convierte bodyPaerser en objeto json
 server.use(bodyParser.urlencoded({ extended: true }));
 
-// listar todas las personas
+
+// Agregar
+server.put('/persona', function(req, res, next){
+	
+	    var tam = personas.length,
+	    	user = {};
+
+	    	user.id = tam+1,
+	    	user.nombre = req.body.name;
+	    	user.edad = req.body.age;
+	    	user.email = req.body.email;
+
+	    	personas.push(user);
+	    	res.send(user);
+	    return next();
+});
+
+// Eliminar
+server.delete('/persona', function(req, res, next){
+	
+	var ide = req.body.id,
+		tam = personas.length,
+		i = 0;
+
+		while( i < tam && !(personas[i].id == ide) )
+			i++;
+
+		if(i < tam){
+			var eliminado = personas.splice(i, 1);
+			res.send(eliminado);
+		}
+		else
+			res.send('no se puede eliminar');
+		return next();
+});
+
+// Modificar
+server.post('/persona', function(req, res, next){
+	
+	var ide = req.body.id,
+		nombre = req.body.nombre,
+		edad = req.body.edad,
+		email = req.body.email,
+
+		tam = personas.length,
+		i = 0;
+
+		while( i < tam && !(personas[i].id == ide) )
+			i++;
+
+		if(i < tam){
+			personas[i].nombre = nombre;
+			personas[i].edad = edad;
+			personas[i].email = email;
+			res.send(personas[i]);
+		}
+		else
+			res.send(404, 'no existe');
+			
+		return next();
+});
+
+// Obtener
 server.get('/persona', function(req, res, next){
 	res.send(personas);
 	return next();
 });
 
-// detalle de una persona
 server.get('/persona/:id', function(req, res, next){
-	var id = req.params.id;
+	
+	var ide = req.params.id,
+		tam = personas.length,
+		i = 0;
 
-	if(personas[id-1])
-		res.send(personas[id-1]);
-	else
-		res.send('no existe');
-	return next();
-});
+		while( i < tam && !(personas[i].id == ide) )
+			i++;
 
-server.put('/persona', function(req, res, next){
-
-	var user = { id:2 , name:'dfg', edad:44 , email:'sdfsd'};
-
-		/*user.id = req.params.id; NO AGREGA
-	    user.name = req.params.nombre;
-	    user.edad = req.params.edad;
-	    user.email = req.params.email;*/
-
-	    personas.push(user);
-	    res.send(200, user);
-	    return next();
+		if(i < tam)
+			res.send(personas[i]);
+		else
+			res.send(404, 'no existe');
+			
+		return next();
 });
 
 server.listen(3000, function(){

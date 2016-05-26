@@ -14,14 +14,49 @@
 	.margen-arriba{
 		margin-top: 50px;
 	}
+	ul{
+		margin-top: 20px;
+	}
 </style>
 <body>
 
 		<div class="container">
-			<div class="row">
-				<input type="submit" value="Enviar">
-			</div>
+			<input id="actualizar" type="submit" value="Actualizar">
 			<div class="row margen-arriba">
+
+				<div class="col-xs-12">
+
+					<div class="col-xs-6">
+						<div class="col-xs-3">
+							<input id="ide" type="text" placeholder="Ingrese un ID">
+						</div>
+					</div>
+
+					<div class="col-xs-6">
+						<div class="col-xs-3">
+								<input id="agregar"   type="submit" value="Agregar">
+						</div>
+						<div class="col-xs-3">
+								<input id="eliminar"  type="submit" value="Eliminar">
+						</div>
+						<div class="col-xs-3">
+								<input id="modificar" type="submit" value="Modificar">
+						</div>
+						<div class="col-xs-3">
+								<input id="obtener"   type="submit" value="Obtener">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="col-xs-4"><input id="nombre" type="text" placeholder="Nombre"></div>
+						<div class="col-xs-4"><input id="edad"   type="text" placeholder="Edad"></div>
+						<div class="col-xs-4"><input id="email"  type="text" placeholder="email"></div>
+					</div>
+				</div>
+
+			</div>
+			<div class="row">
 				<div class="col-xs-12">
 					<ul id="personas"></ul>
 				</div>
