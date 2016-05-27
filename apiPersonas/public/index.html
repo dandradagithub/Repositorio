@@ -6,8 +6,8 @@
 </head>
 
 <style>
-	.container{
-		width: 70%;
+	.contenedor{
+		width: 40%;
 		margin: 0 auto;
 	}
 
@@ -17,48 +17,64 @@
 	ul{
 		margin-top: 20px;
 	}
+	.ocultar{
+		display: none;
+	}
+
+	table {
+    border-collapse: collapse;
+    width: 100%;
+	}
+
+	th, td {
+    text-align: left;
+    padding: 8px;
+	}
+	#fila1{ background-color: red}
+	/*tr:nth-child(even){background-color: #f2f2f2}*/
+
+	th {
+    background-color: white;
+    color: black;
+	}
+	.btn-default{
+		color: white;
+		background-color: lightseagreen;
+	}
 </style>
 <body>
 
-		<div class="container">
-			<input id="actualizar" type="submit" value="Actualizar">
+		<div class="contenedor">
+			<div class="form">
 			<div class="row margen-arriba">
-
 				<div class="col-xs-12">
-
-					<div class="col-xs-6">
-						<div class="col-xs-3">
-							<input id="ide" type="text" placeholder="Ingrese un ID">
+					<div class="row">
+						<div class="col-xs-6">
+  								<input id="id" type="text" class="form-control" placeholder="Id" aria-describedby="basic-addon1">
+  								<input id="nombre" type="text" class="form-control" placeholder="Nombre" aria-describedby="basic-addon1">
 						</div>
-					</div>
-
-					<div class="col-xs-6">
-						<div class="col-xs-3">
-								<input id="agregar"   type="submit" value="Agregar">
-						</div>
-						<div class="col-xs-3">
-								<input id="eliminar"  type="submit" value="Eliminar">
-						</div>
-						<div class="col-xs-3">
-								<input id="modificar" type="submit" value="Modificar">
-						</div>
-						<div class="col-xs-3">
-								<input id="obtener"   type="submit" value="Obtener">
+						<div class="col-xs-6">
+  							<input id="edad" type="text" class="form-control" placeholder="Edad" aria-describedby="basic-addon1">
+  							<input id="email" type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-xs-12">
-						<div class="col-xs-4"><input id="nombre" type="text" placeholder="Nombre"></div>
-						<div class="col-xs-4"><input id="edad"   type="text" placeholder="Edad"></div>
-						<div class="col-xs-4"><input id="email"  type="text" placeholder="email"></div>
+			</div>
+
+			<div class="row margen-arriba">
+				<div class="col-xs-12">
+					<div class="btn-group" role="group" aria-label="">
+  					<button id="actualizar" type="button" class="btn btn-default">Actualizar</button>
+  					<button id="agregar" type="button" class="btn btn-default">Agregar</button>
+  					<button id="eliminar" type="button" class="btn btn-default">Eliminiar</button>
+  					<button id="modificar" type="button" class="btn btn-default">Modificar</button>
+  					<button id="obtener" type="button" class="btn btn-default">Obtener</button>
 					</div>
 				</div>
-
+			</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-12">
-					<ul id="personas"></ul>
+				<div id="divtabla" class="col-xs-12">
 				</div>
 			</div>
 		</div>

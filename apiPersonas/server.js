@@ -66,8 +66,8 @@ server.delete('/persona', function(req, res, next){
 server.post('/persona', function(req, res, next){
 	
 	var ide = req.body.id,
-		nombre = req.body.nombre,
-		edad = req.body.edad,
+		nombre = req.body.name,
+		edad = req.body.age,
 		email = req.body.email,
 
 		tam = personas.length,
@@ -106,7 +106,7 @@ server.get('/persona/:id', function(req, res, next){
 		if(i < tam)
 			res.send(personas[i]);
 		else
-			res.send(404, 'no existe');
+			res.send('no existe');
 			
 		return next();
 });
