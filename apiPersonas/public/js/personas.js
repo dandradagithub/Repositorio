@@ -53,6 +53,15 @@ $(function(){
             success: function(data){ // cuando el servidor esta listo, envia data
                 console.log('respuesta del server', data); // muestra en la consola de front
 
+                var f1 = ['Id', 'Nombre', 'Edad', 'Email'];
+                $('.tabla').remove();
+                var tabla = $('<table></table>');
+                tabla.addClass('tabla');
+                tabla.addClass('margen-arriba');
+                var fila1 = '<th>' + f1[0] + '</th>' + '<th>' + f1[1] + '</th>'
+                         +  '<th>' + f1[2] +   '</th>' +  '<th>' + f1[3] +  '</th>';
+                tabla.append(fila1);
+
                 var fila = $('<tr></tr>'),
 
                     campos = '<th>' + data.id + '</th>' + '<th>' + data.nombre + '</th>'

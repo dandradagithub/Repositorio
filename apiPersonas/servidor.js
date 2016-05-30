@@ -1,5 +1,5 @@
 var express = require('express'),
-	server = express();
+	server = express(),
 	bodyParser = require('body-parser'),
 	personas = [
 	{

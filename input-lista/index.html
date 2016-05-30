@@ -1,0 +1,53 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="bootstrap.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+	.contenedor{
+		width: 80%;
+		margin: 0 auto;
+	}
+
+	.margen-arriba{
+		margin-top: 20px;
+	}
+        .remove{
+            display: none;
+            color: #ff0000;
+            border: none;
+            background-color:white;
+            
+        }
+        
+        ul{
+            list-style: none;
+        }
+        ul li:hover .remove{
+            display: inline-block;
+        }
+</style>
+<body>
+	<div class="contenedor">
+			<form>
+				<div class="row margen-arriba">
+					<div class="col-xs-6">
+						<input id="nuevatarea" type="text" class="form-control" placeholder="Nueva tarea">
+						<input id="fecha" type="date" class="form-control">
+					</div>
+					<div class="col-xs-6">
+						<button type="button" class="showTasks">Mostrar tareas</button>  
+					</div>
+				</div>
+
+				<div class="row margen-arriba">
+	  				<ul></ul>
+	  			</div>
+	  			<button type="submit" class=""></button>  
+			</form>
+	</div>
+	<script type="text/javascript" src="js/jquery-2.2.3.js"></script>
+	<script type="text/javascript" src="js/tareas.js"></script>
+</body>
+</html>
