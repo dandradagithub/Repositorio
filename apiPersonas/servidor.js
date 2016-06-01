@@ -58,7 +58,7 @@ server.delete('/persona', function(req, res, next){
 			res.send(eliminado);
 		}
 		else
-			res.send('no se puede eliminar');
+			res.send(false);
 		return next();
 });
 
@@ -83,7 +83,7 @@ server.post('/persona', function(req, res, next){
 			res.send(personas[i]);
 		}
 		else
-			res.send(404, 'no existe');
+			res.send(false);
 			
 		return next();
 });
@@ -103,10 +103,12 @@ server.get('/persona/:id', function(req, res, next){
 		while( i < tam && !(personas[i].id == ide) )
 			i++;
 
-		if(i < tam)
+		res.send(personas[i]);
+
+		/*if(i < tam)
 			res.send(personas[i]);
 		else
-			res.send('no existe');
+			res.send(false);*/
 			
 		return next();
 });

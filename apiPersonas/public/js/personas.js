@@ -1,11 +1,44 @@
 // cuando la pag este cargado y se haga clic, se envian los datos
 $(function(){
 
-    $('#actualizar').on('click', actualizar);
-    $('#agregar').on('click', agregar);
-    $('#eliminar').on('click', eliminar);
-    $('#modificar').on('click', modificar);
-    $('#obtener').on('click', obtener);
+    var $form = $('form'),
+
+        idInput = $form.find('#id'),
+        nombreInput = $form.find('#nombre'),
+        edadInput = $form.find('#edad'),
+        emailInput = $form.find('#email'),
+
+        actualizarBoton = $form.find('#actualizar'),
+        agregarBoton = $form.find('#agregar'),
+        eliminarBoton = $form.find('#eliminar'),
+        modificarBoton = $form.find('#modificar'),
+        obtenerBoton = $form.find('#obtener');
+
+        actualizarBoton.on('click', actualizar);
+        agregarBoton.on('click', agregar);
+        eliminarBoton.on('click', eliminar);
+        modificarBoton.on('click', modificar);
+        obtenerBoton.on('click', obtener);
+
+    var filacero = '<tr><th> ID</th>' + 
+                       '<th> Nombre</th>' + 
+                       '<th> Edad</th>' + 
+                       '<th> Email</th> </tr>',
+
+        filadatos,
+
+        tablafin = '</table>',
+
+        agregado = '<div id="A" class="alert alert-success margen-arriba" role="alert">' + 
+                    'Se agrego %id%  %nombre%  %edad%  %email%</div>',
+
+        noexiste = '<div id="NE" class="alert alert-danger margen-arriba" role="alert">' + 
+                    '%mensaje% %id%</div>';
+
+    var templateContainer = $('#templates');
+        templateContainer.find('#todoTemplate').load('/templates/filadatos-template.html', function(){
+        filadatos = templateContainer.find('#todoTemplate').html();
+        });
 
     actualizar();
 
@@ -20,27 +53,18 @@ $(function(){
                 console.log('respuesta del server', data); // muestra en la consola de front
                 var tam = data.length;
 
-                var f1 = ['Id', 'Nombre', 'Edad', 'Email'];
-                $('.tabla').remove();
-                var tabla = $('<table></table>');
-                tabla.addClass('tabla');
-                tabla.addClass('margen-arriba');
-                var fila1 = '<th>' + f1[0] + '</th>' + '<th>' + f1[1] + '</th>'
-                         +  '<th>' + f1[2] +   '</th>' +  '<th>' + f1[3] +  '</th>';
-                tabla.append(fila1);
+                borrarTablaYMensajes();
 
+                var tablaini = crearTablaYFilaCero();
+                
                 for(var i = 0 ; i < tam ; i++){
 
-                    var fila = $('<tr></tr>'),
-
-                        campos = '<th>' + data[i].id + '</th>' + '<th>' + data[i].nombre + '</th>'
-                              +  '<th>' + data[i].edad +   '</th>' +  '<th>' + data[i].email +  '</th>';
-
-                    fila.append(campos);        
-                    tabla.append(fila);
+                    tablaini += construirPersonaHTML(filadatos, data[i]);
                 }
 
-                $('#divtabla').append(tabla);
+                tablaini += tablafin;
+
+                $('#divtabla').append(tablaini);
             }
         });
     }
@@ -48,59 +72,52 @@ $(function(){
     function obtener(){
         $.get({
 
-        url:'/persona/' + $('#id').val(),
+        url:'/persona/' + idInput.val(),
 
             success: function(data){ // cuando el servidor esta listo, envia data
                 console.log('respuesta del server', data); // muestra en la consola de front
 
-                var f1 = ['Id', 'Nombre', 'Edad', 'Email'];
-                $('.tabla').remove();
-                var tabla = $('<table></table>');
-                tabla.addClass('tabla');
-                tabla.addClass('margen-arriba');
-                var fila1 = '<th>' + f1[0] + '</th>' + '<th>' + f1[1] + '</th>'
-                         +  '<th>' + f1[2] +   '</th>' +  '<th>' + f1[3] +  '</th>';
-                tabla.append(fila1);
+                if(data){
 
-                var fila = $('<tr></tr>'),
+                    borrarTablaYMensajes();
 
-                    campos = '<th>' + data.id + '</th>' + '<th>' + data.nombre + '</th>'
-                          +  '<th>' + data.edad +   '</th>' +  '<th>' + data.email +  '</th>';
+                    var tablaini = crearTablaYFilaCero();
 
-                    fila.append(campos);        
-                    tabla.append(fila);
+                    tablaini += construirPersonaHTML(filadatos, data);
+                    
+                    tablaini += tablafin;
+                    $('#divtabla').append(tablaini);
+                }
+                else{
+
+                    borrarTablaYMensajes();
+
+                    var ide = idInput.val();
+                    $('#divtabla').append(construirNoExisteHTML(noexiste, "No existe ID:", ide));
+                }
             }
         });
     }
 
-    function agregar(){
+    function agregar(){ 
         $.ajax({
 
         url:'/persona',
         method:'put',
         data:{
-            name:$('#nombre').val(),
-            age:$('#edad').val(),
-            email:$('#email').val()
+            name:nombreInput.val(),
+            age:edadInput.val(),
+            email:emailInput.val()
         },
 
             success: function(data){ // cuando el servidor esta listo, envia data
                 
                 console.log('respuesta del server', data); // muestra en la consola de front
 
-                var fila = $('<tr></tr>'),
+                borrarTablaYMensajes();
 
-                    campos = '<th>' + data.id + '</th>' + '<th>' + data.nombre + '</th>'
-                          +  '<th>' + data.edad +   '</th>' +  '<th>' + data.email +  '</th>';
-
-                    fila.append(campos);        
-                    $('.tabla').append(fila);
-
-                /*$('#personas').append('<li>' +  "ID: " + data.id + 
-                                                "   Nombre: " + data.nombre + 
-                                                "   Edad: " + data.edad + 
-                                                "   Email: " + data.email + 
-                                     '</li>');*/
+                var A = construirPersonaHTML(agregado, data);
+                $('#divtabla').append(A);
             }
         });
     }
@@ -111,12 +128,21 @@ $(function(){
         url:'/persona',
         method:'delete',
         data:{
-            id:$('#id').val()
+            id:idInput.val()
         },
 
             success: function(data){ // cuando el servidor esta listo, envia data
                 
                 console.log('respuesta del server', data); // muestra en la consola de front
+
+                if( !data ){
+
+                    borrarTablaYMensajes();
+
+                    var ide = idInput.val();
+                    var NE = construirNoExisteHTML(noexiste, "No se puede eliminar ya que no existe ID:", ide);
+                    $('#divtabla').append(NE);
+                }
             }
         });
     }
@@ -127,10 +153,10 @@ $(function(){
         url:'/persona',
         method:'post',
         data:{
-            id:$('#id').val(),
-            name:$('#nombre').val(),
-            age:$('#edad').val(),
-            email:$('#email').val()
+            id:idInput.val(),
+            name:nombreInput.val(),
+            age:edadInput.val(),
+            email:emailInput.val()
         },
 
             success: function(data){ // cuando el servidor esta listo, envia data
@@ -141,4 +167,29 @@ $(function(){
         });
     }
 
-});
+    function construirPersonaHTML(cadenaHTML, persona){
+        return cadenaHTML
+                        .replace(/%id%/g, persona.id)
+                        .replace(/%nombre%/g, persona.nombre)
+                        .replace(/%edad%/g, persona.edad)
+                        .replace(/%email%/g, persona.email);
+        }
+        function construirNoExisteHTML(cadenaHTML, msj, id){
+
+            return cadenaHTML
+                            .replace(/%mensaje%/, msj)
+                            .replace(/%id%/, id);
+        }
+        function borrarTablaYMensajes(){
+
+                    $('.tabla').remove();
+                    $('#A').remove();
+                    $('#NE').remove();
+        }
+        function crearTablaYFilaCero(){
+
+                    var tablaini = '<table class="tabla margen-arriba">';
+                    return tablaini += filacero;
+        }
+
+})

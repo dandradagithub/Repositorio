@@ -4,32 +4,25 @@ $(function(){
         taskDate = $form.find('input[type=date]'),
         showTasksButton = $form.find('.showTasks'),
         tasks = [],
-        taskTemplate = '<div class="input-group">' + 
-							'<a class="list-group-item"> %nuevatarea%: %fecha%</a>' + 
-							'<span class="input-group-btn">' + 
-					    		'<button class="btn btn-primary eliminartarea" type="button">X</button>' + 
-							'</span>' + '</div>';
-
-   $form.on('submit', enter);
-   showTasksButton.on('click', showTasks);
-
-    $('body').on('click', '.eliminartarea', function(){
+        templateContainer = $('#templates'),
+        taskTemplate;
         
-    var tarea = $(this).parent().parent();
-    tarea.remove();
+    templateContainer.find('#todoTemplate').load('/todo/task-template.html', function(){
+        taskTemplate = templateContainer.find('#todoTemplate').val();
     });
 
-   function enter(){
+   $form.on('submit', onSubmit);
+   showTasksButton.on('click', showTasks);
+      
+   function onSubmit(){
        
        if(taskInput.val().length && taskDate.val().length){
           tasks.push({
              name:  taskInput.val(),
              date: taskDate.val()
           });
-          console.log(tasks);
        }
-
-		return false;
+       return false;
    }
    
    function showTasks(){
@@ -43,7 +36,7 @@ $(function(){
    
   function getTaskHtml(task){
       return taskTemplate
-        .replace(/%nuevatarea%/gi, task.name)
-        .replace(/%fecha%/g, task.date);
+        .replace(/%name%/g, task.name)
+        .replace(/%date%/g, task.date);
   }
 });

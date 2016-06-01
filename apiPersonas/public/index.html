@@ -10,7 +10,6 @@
 		width: 40%;
 		margin: 0 auto;
 	}
-
 	.margen-arriba{
 		margin-top: 50px;
 	}
@@ -20,7 +19,8 @@
 	.ocultar{
 		display: none;
 	}
-
+	#fila1{ background-color: red}
+	/*tr:nth-child(even){background-color: #f2f2f2}*/
 	table {
     border-collapse: collapse;
     width: 100%;
@@ -30,22 +30,21 @@
     text-align: left;
     padding: 8px;
 	}
-	#fila1{ background-color: red}
-	/*tr:nth-child(even){background-color: #f2f2f2}*/
 
-	th {
-    background-color: white;
-    color: black;
-	}
+	tr:nth-child(even){background-color: #f2f2f2}
+
 	.btn-default{
 		color: white;
 		background-color: lightseagreen;
 	}
+	#templates{
+        display: none;
+    }
 </style>
 <body>
 
 		<div class="contenedor">
-			<div class="form">
+			<form>
 			<div class="row margen-arriba">
 				<div class="col-xs-12">
 					<div class="row">
@@ -62,21 +61,26 @@
 			</div>
 
 			<div class="row margen-arriba">
-				<div class="col-xs-12">
-					<div class="btn-group" role="group" aria-label="">
-  					<button id="actualizar" type="button" class="btn btn-default">Actualizar</button>
-  					<button id="agregar" type="button" class="btn btn-default">Agregar</button>
-  					<button id="eliminar" type="button" class="btn btn-default">Eliminiar</button>
-  					<button id="modificar" type="button" class="btn btn-default">Modificar</button>
-  					<button id="obtener" type="button" class="btn btn-default">Obtener</button>
+					<div class="col-xs-12">
+						<div class="btn-group center-block" role="group" aria-label="">
+		  					<button id="actualizar" type="button" class="btn btn-default">Actualizar</button>
+		  					<button id="agregar" type="button" class="btn btn-default">Agregar</button>
+		  					<button id="eliminar" type="button" class="btn btn-default">Eliminiar</button>
+		  					<button id="modificar" type="button" class="btn btn-default">Modificar</button>
+		  					<button id="obtener" type="button" class="btn btn-default">Obtener</button>
+						</div>
 					</div>
-				</div>
 			</div>
-			</div>
+
 			<div class="row">
 				<div id="divtabla" class="col-xs-12">
 				</div>
 			</div>
+			</form>
+
+			<div id="templates">
+        		<textarea name="" id="todoTemplate" cols="30" rows="10"></textarea>
+    		</div>
 		</div>
 
 	<script type="text/javascript" src="js/jquery-2.2.3.js"></script>
