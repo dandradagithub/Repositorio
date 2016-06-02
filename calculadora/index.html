@@ -1,0 +1,60 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="bootstrap.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+.contenedor{
+	width: 60%;
+	margin: 0 auto;
+}
+.margen{
+	margin-top: 10%;
+}
+</style>
+<body>
+	<div class="contenedor">
+		<form>
+			<div class="row margen">
+				<div class="col-xs-12">
+					<div class="row">
+						<div class="col-xs-3">
+							<input id="operacion" type="text" class="form-control" placeholder="operacion">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-horizontal">
+						<button id="uno" class="btn btn-default" type="button">1</button>
+						<button id="dos" class="btn btn-default" type="button">2</button>
+						<button id="tres" class="btn btn-default" type="button">3</button>
+						<button id="multiplicar" class="operador btn btn-default" type="button">*</button>
+					</div>
+					<div class="form-horizontal">
+						<button id="cuatro" class="btn btn-default" type="button">4</button>
+						<button id="cinco" class="btn btn-default" type="button">5</button>
+						<button id="seis" class="btn btn-default" type="button">6</button>
+						<button id="dividir" class="operador btn btn-default" type="button">/</button>
+					</div>
+					<div class="form-horizontal">
+						<button id="siete" class="btn btn-default" type="button">7</button>
+						<button id="ocho" class="btn btn-default" type="button">8</button>
+						<button id="nueve" class="btn btn-default" type="button">9</button>
+						<button id="sumar" class="operador btn btn-default" type="button">+</button>
+					</div>
+					<div class="form-horizontal">
+						<button id="cero" class="btn btn-default" type="button">0</button>
+						<button id="igual" class="btn btn-default" type="button">=</button>
+						<button id="limpiar" class="btn btn-default" type="button">C</button>
+						<button id="restar" class="operador btn btn-default" type="button">-</button>
+					</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript" src="js/jquery-2.2.3.js"></script>
+	<script type="text/javascript" src="js/calculadora.js"></script>
+</body>
+</html>
