@@ -12,47 +12,50 @@
 .margen{
 	margin-top: 10%;
 }
+.cal div{
+	padding: 0;
+}
+.btn{
+	width: 100%;
+}
 </style>
 <body>
 	<div class="contenedor">
-		<form>
 			<div class="row margen">
-				<div class="col-xs-12">
-					<div class="row">
-						<div class="col-xs-3">
-							<input id="numeroInput" type="text" class="form-control">
-						</div>
-					</div>
+				<div class="col-xs-offset-4 col-xs-4 cal">
 
 					<div class="row">
-						<div class="form-horizontal">
-						<button id="uno" class="numero btn btn-default" type="button">1</button>
-						<button id="dos" class="numero btn btn-default" type="button">2</button>
-						<button id="tres" class="numero btn btn-default" type="button">3</button>
-						<button id="multiplicar" class="operador btn btn-default" type="button">*</button>
+						<div class="col-xs-12">
+							<input id="numeroInput" type="text" class="input form-control">
+						</div>
 					</div>
-					<div class="form-horizontal">
-						<button id="cuatro" class="numero btn btn-default" type="button">4</button>
-						<button id="cinco" class="numero btn btn-default" type="button">5</button>
-						<button id="seis" class="numero btn btn-default" type="button">6</button>
-						<button id="dividir" class="operador btn btn-default" type="button">/</button>
+					<div class="row">
+						<div class="col-xs-3"><button id="uno" class="numero btn btn-default" type="button">1</button></div>
+						<div class="col-xs-3"><button id="dos" class="numero btn btn-default" type="button">2</button></div>
+						<div class="col-xs-3"><button id="tres" class="numero btn btn-default" type="button">3</button></div>
+						<div class="col-xs-3"><button id="multiplicar" class="operador btn btn-default" type="button">*</button></div>
 					</div>
-					<div class="form-horizontal">
-						<button id="siete" class="numero btn btn-default" type="button">7</button>
-						<button id="ocho" class="numero btn btn-default" type="button">8</button>
-						<button id="nueve" class="numero btn btn-default" type="button">9</button>
-						<button id="sumar" class="operador btn btn-default" type="button">+</button>
+					<div class="row">
+						<div class="col-xs-3"><button id="cuatro" class="numero btn btn-primary" type="button">4</button></div>
+						<div class="col-xs-3"><button id="cinco" class="numero btn btn-primary" type="button">5</button></div>
+						<div class="col-xs-3"><button id="seis" class="numero btn btn-primary" type="button">6</button></div>
+						<div class="col-xs-3"><button id="dividir" class="operador btn btn-primary" type="button">/</button></div>
 					</div>
-					<div class="form-horizontal">
-						<button id="cero" class="numero btn btn-default" type="button">0</button>
-						<button id="igual" class="operador btn btn-default" type="button">=</button>
-						<button id="limpiar" class="operador btn btn-default" type="button">C</button>
-						<button id="restar" class="operador btn btn-default" type="button">-</button>
+					<div class="row">
+						<div class="col-xs-3"><button id="siete" class="numero btn btn-primary" type="button">7</button></div>
+						<div class="col-xs-3"><button id="ocho" class="numero btn btn-primary" type="button">8</button></div>
+						<div class="col-xs-3"><button id="nueve" class="numero btn btn-primary" type="button">9</button></div>
+						<div class="col-xs-3"><button id="sumar" class="operador btn btn-primary" type="button">+</button></div>
+					</div>
+					<div class="row">
+						<div class="col-xs-3"><button id="cero" class="numero btn btn-primary" type="button">0</button></div>
+						<div class="col-xs-3"><button id="igual" class="operador btn btn-primary" type="button">=</button></div>
+						<div class="col-xs-3"><button id="limpiar" class="operador btn btn-primary" type="button">C</button></div>
+						<div class="col-xs-3"><button id="restar" class="operador btn btn-primary" type="button">-</button>
 					</div>
 					</div>
 				</div>
 			</div>
-		</form>
 	</div>
 	<script type="text/javascript" src="js/jquery-2.2.3.js"></script>
 	<script type="text/javascript" src="js/calculadora.js"></script>

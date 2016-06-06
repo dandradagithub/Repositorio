@@ -68,14 +68,14 @@ var calculadora = (function(){
 
 $(function(){
 
-	var $form = $('form'),
+	var $cal = $('.cal'),
 
-	numeroInput = $form.find('#numeroInput'),
+	numeroInput = $cal.find('#numeroInput'),
 	operacion,
 	concatenarNumero;
 
-	$form.on('click', '.operador', botonOperador);
-	$form.on('click', '.numero', botonNumero);
+	$cal.on('click', '.operador', botonOperador);
+	$cal.on('click', '.numero', botonNumero);
 	$('#igual').on('submit', igual);
 
 	function igual(){
@@ -116,6 +116,6 @@ $(function(){
         concatenarNumero = true;
         operacion = null;
     }
-	//atributo de boton  $($0).data().operacion; valor del attr data-operacion
+	//atributo de boton  $($0).data().operacion; valor del attr data-opera
 	// $($0). elmento que esta seleccionado
 })
