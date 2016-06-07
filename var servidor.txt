@@ -1,0 +1,8 @@
+firstName
+lastName
+gender
+birthday
+address
+photo
+password
+email

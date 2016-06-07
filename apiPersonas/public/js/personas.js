@@ -43,10 +43,9 @@ $(function(){
     actualizar();
 
     function actualizar(){
-        $.get({ 
+        $.get({
 
         url:'/persona',
-
         data:{
         },
             success: function(data){ // cuando el servidor esta listo, envia data

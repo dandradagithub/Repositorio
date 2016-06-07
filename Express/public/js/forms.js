@@ -3,7 +3,7 @@ $(function(){
 
 	var form = $('form'),
 		campo_usuario = form.find('input.username'), // $('#usuario')
-		campo_contraseña = form.find('input.password'); // $('#contraseña')
+		campo_contrasena = form.find('input.password'); // $('#contraseña')
         
     form
         .find('input[type=submit]')
@@ -47,11 +47,11 @@ $(function(){
 
 
 		// contraseña
-        if(!campo_contraseña.val().length){
-            campo_contraseña.parents('.form-group').addClass('has-error');
+        if(!campo_contrasena.val().length){
+            campo_contrasena.parents('.form-group').addClass('has-error');
         }
         else{
-        	campo_contraseña.parents('.form-group').removeClass('has-error');
+        	campo_contrasena.parents('.form-group').removeClass('has-error');
         }
 
         if(form.find('has-error').length){
@@ -64,7 +64,7 @@ $(function(){
 
 		data:{
 			usuario:campo_usuario.val(),
-			contraseña:campo_contraseña.val()
+			contrasena:campo_contrasena.val()
 		},
 			success: function(data){ // cuando el servidor esta listo, envia data
 				console.log('respuesta del server', data); // muestra en la consola de front
