@@ -10,11 +10,16 @@
 		margin: 0 auto;
 	}
 	.margen-arriba{
-		margin-top: 20%;
+		margin-top: 10%;
 	}
-
+	.margen-izq{
+		margin-left: 5%;
+	}
 	.form-group .help-block{
 		display: none;
+	}
+	input[type='submit']{
+		margin-top: 5px;
 	}
 	.form-group.has-error.required .help-block.required{
 		display: block;
@@ -28,8 +33,12 @@
 		<div class="row login margen-arriba">
 			<div class="col-xs-10">
 				<form>
-					<div class="form-horizontal">
-						<div class="form-group">
+					<div class="panel panel-success">
+					  <div class="panel-heading">
+					    Ingresar
+					  </div>
+					  <div class="panel-body">
+					  	<div class="form-group">
 							<label class="col-sm-2 control-label">Email</label>
 							<div class="col-sm-10">
 								<input type="text" class="email form-control" placeholder="Email"></input>
@@ -41,23 +50,26 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Password</label>
 							<div class="col-sm-10">
-								<input type="password" class="pass form-control"></input>
+								<input type="password" class="pass form-control" placeholder="Password"></input>
 							</div>
-							<span class="help-block">Password Required</span>
+							<span class="help-block required">Password Required</span>
 						</div>
 
-						<input type="submit" class="btn btn-primary" value="Ingresar">
-
 						<div class="row">
-							<div class="col-xs-3">
-								<div class="list-group">
+							<input type="submit" class="btn btn-primary center-block" value="Iniciar sesión">
+						</div>
+					  </div>
+					</div>
+
+					<div class="form-horizontal">
+						<div class="row margen-arriba">
+							<div class="col-xs-4">
 									<li class="list-group-item">
 										<a href="registrar/index.html">Registrarse</a>
 									</li>
 									<li class="list-group-item">
 										<a href="listar/index.html">Listar</a>
 									</li>
-								</div>
 							</div>
 						</div>
 					</div>

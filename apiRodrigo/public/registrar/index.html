@@ -12,6 +12,15 @@
 	.margen-arriba{
 		margin-top: 50px;
 	}
+	.form-group .help-block{
+		display: none;
+	}
+	.form-group.has-error{
+		display: block;
+	}
+	.form-group.has-error.pass-dif .help-block.pass-dif{
+		display: block;
+	}
 </style>
 <body>
 	<div class="contenedor">
@@ -70,8 +79,15 @@
 								<div class="form-group">
 									<label class="col-sm-2 control-label">Password</label>
 									<div class="col-sm-10">
-										<input name="password" type="password" class="password form-control"></input>
+										<input id="passuno" name="password" type="password" class="password form-control"></input>
 									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label">Password</label>
+									<div class="col-sm-10">
+										<input id="passdos"type="password" class="password form-control"></input>
+									</div>
+									<span class="help-block pass-dif">Password diferentes</span>
 								</div>
 
 								<div class="form-group">

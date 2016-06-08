@@ -16,9 +16,32 @@ var service = (function(){
                        '<th> %Direccion%</th>' +
                        '<th> %Foto%</th>' +
                        '<th> %Contraseña%</th>' +
-                       '<th> %Email%</th> </tr>',
+                       '<th> %Email%</th>' +
+                       '<th> <span class="input-group-btn">' + 
+                          '<button class="btn editardatos" data-id="%id%" type="button">' +
+                          '<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>' +
+                          '</button>' + 
+                       '</span> </th> </tr>',
+
 
         tablafin = '</table>';
+
+        function init(){
+          $('body').on('click', '.editardatos', editar);
+        }
+
+        function editar(){
+          console.log($(this).data('id'));
+          var user = {'firstName': 'bbbbbb'}
+          $.ajax({
+          url: 'https://connectedin.herokuapp.com/person/:' + $(this).data('id'),
+          method: 'PUT',
+          data: JSON.stringify(user),
+          contentType:'application/json'
+        })
+        }
+
+        init();
 
 	function listarUsuarios(){ 
         $.ajax({
@@ -28,7 +51,7 @@ var service = (function(){
 
             success: function(data){ 
 
-                console.log('respuesta del server', data);
+                //console.log('respuesta del server', data);
 
                 var tam = data.length;
 
@@ -56,6 +79,7 @@ var service = (function(){
     function construirPersonaHTML(cadenaHTML, persona){
 
         return cadenaHTML
+                        .replace(/%id%/g, persona._id)
                         .replace(/%Nombre%/g, persona.firstName)
                         .replace(/%Apellido%/g, persona.lastName)
                         .replace(/%Sexo%/g, persona.gender)

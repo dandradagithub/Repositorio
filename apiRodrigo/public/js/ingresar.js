@@ -1,19 +1,22 @@
 $(function(){
 
-	var form,
+	var $form,
 		inputemail,
 		inputpassword;
 
-		form = $('form');
+		$form = $('form');
 
-		inputemail = form.find('input.email');
-    	inputpassword = form.find('input.pass');
+		inputemail = $form.find('input.email');
+    	inputpassword = $form.find('input.pass');
 
-    	form.
+    	/*$form.
     		find('input[type=submit]')
-    		.on('click', ingresar);
+    		.on('click', ingresar);*/
 
-	function ingresar(){
+        $form.on('submit', ingresar);
+
+	function ingresar(e){
+        e.preventDefault();
 
 		if(!inputemail.val().length){
         	inputemail.parents('.form-group').addClass('has-error');	
@@ -36,14 +39,15 @@ $(function(){
 
         if(!inputpassword.val().length){
             inputpassword.parents('.form-group').addClass('has-error');
+            inputpassword.parents('.form-group').addClass('required');
         }
         else{
         	inputpassword.parents('.form-group').removeClass('has-error');
         }
 
-        /*if(form.find('has-error').length){
+        if($form.find('has-error').length){
             return false;
-        }*/
+        }
 	}
 
 	function validarEmail(email){
