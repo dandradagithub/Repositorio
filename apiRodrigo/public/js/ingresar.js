@@ -9,10 +9,6 @@ $(function(){
 		inputemail = $form.find('input.email');
     	inputpassword = $form.find('input.pass');
 
-    	/*$form.
-    		find('input[type=submit]')
-    		.on('click', ingresar);*/
-
         $form.on('submit', ingresar);
 
 	function ingresar(e){
