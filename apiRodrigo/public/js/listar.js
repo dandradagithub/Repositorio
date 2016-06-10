@@ -1,18 +1,98 @@
-var listar = (function(){
+var id_editar;
 
-        var templateContainer = $('#templates');
-        templateContainer.find('#todoTemplate').load('/templates/filacero.html', function(){
-        filacero = templateContainer.find('#todoTemplate').html();
+var service = (function(){
+
+  function init(){
+        $('.contenedor').on('click', '.editardatos', editar);
+    }
+
+  function editar(){
+    var usuario = {};
+    usuario.id = $(this).data('id');
+    usuario.firstName = $(this).data('firstName');
+    usuario.lastName = $(this).data('lastName');
+    usuario.gender = $(this).data('gender');
+    usuario.birthday = $(this).data('birthday');
+    usuario.address = $(this).data('address');
+    usuario.photo = $(this).data('photo');
+    usuario.email = $(this).data('password');
+    usuario.password = $(this).data('email');
+    console.log(usuario);
+    /*$.ajax({ MODIFICAR
+    url: 'https://connectedin.herokuapp.com/person/' + $(this).data('id'),
+    method: 'PUT',
+    data: JSON.stringify(persona),
+    contentType:'application/json'
+    })*/
+    $.ajax({
+        url:'/usuario/',
+        method:'put',
+        data:{
+            id: usuario.id,
+            firstName: usuario.firstName,
+            lastName: usuario.lastName,
+            gender: usuario.gender,
+            birthday: usuario.birthday,
+            address: usuario.address,
+            photo: usuario.photo,
+            password: usuario.password,
+            email: usuario.email
+        },
+            success: function(data){
+                console.log('respuesta del server', data);
+            }
         });
-        var templateContainer = $('#templates');
+    }
+
+  function listarUsuarios(){ 
+        $.ajax({
+            url: 'https://connectedin.herokuapp.com/person',
+            method: 'GET',
+            contentType:'application/json',
+
+            success: function(data){ 
+                var tam = data.length;
+                $('.tabla').remove();
+                var tablaini = template_html.crearTablaYFilaCero();
+
+                for(var i = 0 ; i < tam ; i++){
+                    tablaini += template_html.construirPersonaHTML(template_html.filaDatos(), data[i]);
+                }
+
+                tablaini += tablafin;
+                $('#divtabla').append(tablaini);
+            }
+        });
+    }
+
+    init();
+
+    return{
+      listarUsuarios: listarUsuarios,
+    }
+}());
+
+var template_html = (function(){
+
+        var templateContainer = $('#templates'),
+            filacero,
+            filadatos;
+
+            templateContainer.find('#todoTemplate').load('/templates/filacero.html', function(){
+            filacero = templateContainer.find('#todoTemplate').html();
+            });
+
         templateContainer.find('#todoTemplate').load('/templates/filadatos.html', function(){
         filadatos = templateContainer.find('#todoTemplate').html();
         });
         
         tablafin = '</table>';
 
+        function filaDatos(){
+          return filadatos;
+        }
         function crearTablaYFilaCero(){
-          var tablaini = '<table class="pure-table tabla margen-arriba">';
+          var tablaini = '<table id="tabla" class="pure-table tabla margen-arriba">';
           return tablaini += filacero;
         }
         function construirPersonaHTML(cadenaHTML, persona){
@@ -30,6 +110,12 @@ var listar = (function(){
 
         return{
           crearTablaYFilaCero: crearTablaYFilaCero,
-          construirPersonaHTML: construirPersonaHTML
+          construirPersonaHTML: construirPersonaHTML,
+          filaDatos: filaDatos
         }
 }());
+
+$(function(){
+
+  service.listarUsuarios();
+})

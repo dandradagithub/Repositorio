@@ -29,3 +29,5 @@ filadatos = '<tr><th> %Nombre%</th>' +
                        '<th> Foto</th>' +
                        '<th> Contraseña</th>' +
                        '<th> Email</th> </tr></thead>';
+
+                       onclick="window.location.href='/registrar/index.html'"
