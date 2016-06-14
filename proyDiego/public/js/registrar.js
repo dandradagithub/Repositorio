@@ -40,7 +40,7 @@ var registrar = (function(){
         },
             success: function(data){
                 console.log('respuesta del server', data);
-
+                
 				editarXid = data.id;
                 $form.find('#nom').val(data.firstName);
               	$form.find('#ape').val(data.lastName);
@@ -54,10 +54,11 @@ var registrar = (function(){
                 $form.find('#fenac').val(fecha.getFullYear()+'-'+fecha.getMonth()+'-'+fecha.getDate());
                 console.log(data.birthday);
                 console.log(fecha.getFullYear(),fecha.getMonth(), fecha.getDate());
+
+                $form.find('#email').val(data.email);
+                $form.find('#resumen').val(data.summary);
 				$form.find('#dir').val('dire', data.address);
 				$form.find('#foto').val(data.photo);
-				$form.find('#pass').val(data.password);
-				$form.find('#email').val(data.email);
             }
         });
     }
