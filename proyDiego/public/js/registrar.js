@@ -51,13 +51,14 @@ var registrar = (function(){
                     $form.find('#sexF').prop('checked', true);
 
                 var fecha = new Date(data.birthday);
-                $form.find('#fenac').val(fecha.getFullYear()+'-'+fecha.getMonth()+'-'+fecha.getDate());
+                var fechaString = fecha.getFullYear()+'-'+fecha.getMonth()+'-'+fecha.getDate();
+                $form.find('#fenac').val(fechaString);
                 console.log(data.birthday);
                 console.log(fecha.getFullYear(),fecha.getMonth(), fecha.getDate());
 
                 $form.find('#email').val(data.email);
                 $form.find('#resumen').val(data.summary);
-				$form.find('#dir').val('dire', data.address);
+				$form.find('#dir').val(data.address);
 				$form.find('#foto').val(data.photo);
             }
         });

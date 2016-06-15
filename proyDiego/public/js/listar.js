@@ -1,8 +1,25 @@
+var usuario = {};
+
 var service = (function(){
 
   $('#divtabla').on('click', '.editdata', editar);
   $('#divtabla').on('click', '.viewdata', ver);
+  $('#divtabla').on('click', '.map', cargarCoordenadas);
 
+  function cargarCoordenadas(){
+    usuario.id = $(this).data('id');
+
+    $.ajax({
+        url:'/usuario/',
+        method:'put',
+        data:{
+            id: usuario.id
+        },
+        success: function(data){
+          console.log('respuesta del server', data);
+        }
+        });
+  }
   function ver(){
     $('#divtabla').addClass('ocultar');
     var verusuario = {};
@@ -15,8 +32,6 @@ var service = (function(){
   }
 
   function editar(){
-
-    var usuario = {};
     usuario.id = $(this).data('id');
     usuario.firstName = $(this).data('firstname');
     usuario.lastName = $(this).data('lastname');
@@ -40,7 +55,8 @@ var service = (function(){
             email: usuario.email,
             summary: usuario.summary,
             address: usuario.address,
-            photo: usuario.photo
+            photo: usuario.photo,
+            coordinate: usuario.coordinate
             
         },
         success: function(data){
