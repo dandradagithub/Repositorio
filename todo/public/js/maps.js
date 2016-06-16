@@ -1,3 +1,4 @@
+
 var map;
 var i = 0, marcador = 2;
 var icon_BACKWARD, icon_FORWARD;
@@ -5,59 +6,50 @@ var id_map;
 var iconos = ['a', 'b'];
 var color = ['#07D300', '#0091FF'];
 var coordinate = [];
-var user = {};
+var enviar_coor = {};
 
-function initMap() {
-
-    map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 12
-    })
-
+function initMap(userData) {
     icon_BACKWARD = google.maps.SymbolPath.BACKWARD_CLOSED_ARROW;
     icon_FORWARD = google.maps.SymbolPath.FORWARD_CLOSED_ARROW;
     iconos[0] = icon_BACKWARD; 
     iconos[1] = icon_FORWARD;
 
-    obtenerID();
+    id_map = userData._id;
 
-    /*var geolocalizacion = new google.maps.Geocoder();
-    buscarDireccion(geolocalizacion, map);*/
-
+    var geolocalizacion = new google.maps.Geocoder();
+   
     map.addListener('click', function(e){
     agregarMarcador(e.latLng, map);
-    user.lat = coordinate[0].lat;
-    user.lng = coordinate[0].lng;
+    enviar_coor.lat = coordinate[0].lat;
+    enviar_coor.lng = coordinate[0].lng;
     });
-    
+
     document.getElementById('editcoordinate').onclick = enviarCoordenadas;
 }
 
-function obtenerID(){
-        $.get({
-
-        url:'/usuario/',
-        data:{
-        },
-            success: function(data){
-                console.log('respuesta del server', data);
-                id_map = data.id;
-                console.log(id_map);
-            }
-        });
-    }
 
 function enviarCoordenadas(){
     console.log(id_map);
-    console.log(user);
-    var data = { "coordinate": {"lat": coordinate[0].lat, "lng": coordinate[0].lng} };
-    console.log(data);
+    console.log(enviar_coor);
+    var data = {"coordinate" : {"lat" : "",
+                                "lng": ""
+                               }
+               };
+    debugger;
+    data.coordinate.lat = enviar_coor.lat;
+    data.coordinate.lng = enviar_coor.lng;
 
+    
       $.ajax({
       url: 'https://connectedin.herokuapp.com/person/' + id_map,
       method: 'PUT',
-      data: JSON.stringify(user),
-      contentType:'application/json'
+      data: JSON.stringify(data),
+      contentType:'application/json',
+      success: function(data){ 
+        console.log(data);
+
+      }
+
       })
 }
 
@@ -79,17 +71,14 @@ function agregarMarcador(latLng, map){
 
     coor.lat = latLng.lat();
     coor.lng = latLng.lng();
-
-    console.log(coor);
     coordinate.push(coor);
-    console.log(coordinate);
-    console.log(coordinate.length);
 
   	i++; marcador--;
 	}
 	else
-		alert('Solo se pueden agregar 2 marcadores');
+		alert('Solo se pueden agregar'+marcador+'marcadores');
 }
+/*
 function buscarDireccion(localizar, map) {
 
   var address = "Francia, Virson";
@@ -112,4 +101,4 @@ function buscarDireccion(localizar, map) {
     		alert('Error: ' + status);
   });
 
-}
+}*/
